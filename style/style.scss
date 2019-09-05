@@ -1,0 +1,22 @@
+body{
+	margin:0;
+	padding:0;
+	border:0;
+}
+form{
+	.form-control{
+	padding:10px;
+	}
+}
+.btn{
+	padding:14px;
+	line-height:1em;
+	font-weight:500;
+	color: #fff;
+	background:#007bff;
+	border:1px solid #fff;
+	&:hover{
+		background:#00c5ff;
+	}
+
+}
