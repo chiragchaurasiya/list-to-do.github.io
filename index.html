@@ -16,7 +16,7 @@
 <h1 class="text-white mb-4 font-weight-bold">To-Do App</h1>
 				<h4 class="text-white mb-4">Add New To-do</h4>
 				<form class="mb-4">
-					<input id="item" type="text" placeholder="Enter new Task" class="form-control">
+					<input id="item" type="text" placeholder="Enter New Task" class="form-control" required>
 				</form>
 				<div class="mb-3">
 					<h2 class="mb-2 text-white"> Added Items</h2>
@@ -33,19 +33,27 @@
 			$(document).ready(function () {
 				var itemsArray =  [];
 				var  ul = $('.item-list');
+
+				
 				$('.add').click(function(){
 					var input = $('#item').val();
+					console.log(input);
+					if(input ==''){
+					alert("Enter Your Task");
+				}
+				else{
+					// localStorage.setItem('items', JSON.stringify(itemsArray));
                     const data = JSON.parse(localStorage.getItem('items'));
-						
 					// localStorage
                     itemsArray.push(input);
                     localStorage.setItem('items', JSON.stringify(itemsArray));
                     $(ul).append('<li>'+input+'</li>');
+                    $('#item').val('');
                     return false;
-                    
+                    }
                     });
-
-// clear list
+                  
+                // clear list
 				$('.clear').click(function(){
 					localStorage.clear();
 					$(ul).empty();
