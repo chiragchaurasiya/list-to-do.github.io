@@ -25,6 +25,7 @@
 					 <button class="btn add">Add</button>
 					  <button class="btn clear">Clear All</button>
 				</div>
+				<h4 class="d-none message p-4 text-warning">PLease check Local Storage</h4>
 				
 			</div>
 		</section>
@@ -39,16 +40,16 @@
 					var input = $('#item').val();
 					console.log(input);
 					if(input ==''){
-					alert("Please Enter Your Task");
+					alert("Enter Your Task");
 				}
 				else{
-					// localStorage.setItem('items', JSON.stringify(itemsArray));
-                    const data = JSON.parse(localStorage.getItem('items'));
+					
 					// localStorage
                     itemsArray.push(input);
                     localStorage.setItem('items', JSON.stringify(itemsArray));
                     $(ul).append('<li>'+input+'</li>');
                     $('#item').val('');
+                    $('.message').removeClass('d-none');
                     return false;
                     }
                     });
