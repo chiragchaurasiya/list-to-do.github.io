@@ -35,7 +35,6 @@
 				var  ul = $('.item-list');
 				$('.add').click(function(){
 					var input = $('#item').val();
-					localStorage.setItem('items', JSON.stringify(itemsArray));
                     const data = JSON.parse(localStorage.getItem('items'));
 						
 					// localStorage
@@ -51,6 +50,7 @@
 					localStorage.clear();
 					$(ul).empty();
 					$('#item').val('');
+					itemsArray = [];
 				});
 				$("form").submit(function() {
                  return false;
